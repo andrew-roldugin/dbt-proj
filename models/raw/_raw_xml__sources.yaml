@@ -1,0 +1,97 @@
+version: 2
+
+sources:
+  - name: core
+    schema: core
+    database: zakupki
+    tables:
+      - name: raw_xml
+        description: 'EAV-модель для хранения элементов и атрибутов из XML-документов.'
+        columns:
+          - name: record_id
+            description: 'Идентификатор записи в XML (иерархический).' 
+            tests:
+              - not_null
+          - name: file_id
+            description: 'Связь с файлом, откуда извлечена запись.'
+            tests:
+              - not_null
+              - relationships:
+                  to: ref('file_metadata')
+                  field: file_id
+          - name: path
+            description: 'Полный XPath до элемента.'
+            tests:
+              - not_null
+          - name: element_name
+            description: 'Название XML-элемента или атрибута.'
+            tests:
+              - not_null
+          - name: element_value
+            description: 'Извлеченное значение.'
+          - name: type
+            description: 'Тип записи: элемент или атрибут.'
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['element', 'attribute']
+
+      - name: file_metadata
+      - name: document_family
+      - name: field_mapping
+
+      - name: xsd_specification
+        description: 'Спецификация элементов XML-документов, извлечённая из XSD.'
+        columns:
+          - name: spec_id
+            description: 'Уникальный идентификатор элемента спецификации.'
+            tests:
+              - not_null
+              - unique
+          - name: schema_id
+            description: 'Связь с XSD-схемой.'
+            tests:
+              - relationships:
+                  to: ref('xsd_schemas')
+                  field: schema_id
+          - name: xpath
+            description: 'XPath до элемента.'
+          - name: element_name
+            description: 'Имя XML-элемента.'
+          - name: max_occurs
+            description: 'Максимальная кратность вхождений элемента.'
+          - name: xs_data_type
+            description: 'Тип данных согласно XSD.'
+          - name: documentation
+            description: 'Документация к элементу.'
+
+      - name: xsd_specification_details
+        description: 'Привязка спецификаций к семействам документов с учетом версии.'
+        columns:
+          - name: details_id
+            description: 'Уникальный идентификатор настройки спецификации.'
+            tests:
+              - not_null
+              - unique
+          - name: specification_id
+            description: 'Связь со спецификацией элемента.'
+            tests:
+              - not_null
+              - relationships:
+                  to: ref('xsd_specification')
+                  field: spec_id
+          - name: family_id
+            description: 'Связь с семейством документов.'
+            tests:
+              - not_null
+              - relationships:
+                  to: ref('document_family')
+                  field: family_id
+          - name: is_active
+            description: 'Флаг активности спецификации.'
+          - name: created_at
+            description: 'Дата создания записи.'
+          - name: version
+            description: 'Версия спецификации.'
+            tests:
+              - not_null

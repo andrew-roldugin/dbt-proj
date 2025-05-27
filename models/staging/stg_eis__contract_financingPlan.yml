@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: stg_eis__contract_financingPlan
+    description: "Стадия нормализации данных из fz44_contract_financingPlan"
+    columns:
+      - name: isBudgetFunds
+        description: "Признак финансирования за счет бюджетных средств"
+        data_type: boolean
+      - name: code
+        description: "Код бюджета"
+        data_type: text
+      - name: name
+        description: "Наименование бюджета"
+        data_type: text
+      - name: code
+        description: "Код по ОКТМО"
+        data_type: text
+      - name: name
+        description: |
+          Полное наименование. 
+          Игнорируется при приеме. При передаче заполняется значением из справочника \"Общероссийский классификатор территорий муниципальных образований (ОКТМО)\" (nsiOKTMO)
+        data_type: text
+      - name: budgetLevel
+        description: |
+          Уровень бюджета. 
+          
+          Игнорируется при приеме.
+          Заполняется автоматически из справочника «Уровни бюджетов» значением, соответствующим коду бюджета (budget/code)
+        data_type: text
+      - name: fundsBudgetLevel
+        description: |
+          Уровень бюджета фонда. 
+          Требуется явно указывать для бюджетов ПФР, ФСС, ФОМС, ТГВФ:
+          41 - бюджет Пенсионного фонда Российской Федерации;
+          42 - бюджет Фонда социального страхования Российской Федерации;
+          43 - бюджет Федерального фонда обязательного медицинского страхования;
+          50 - бюджет территориального государственного внебюджетного фонда.
+        data_type: text
+      - name: isExtrabudgetFunds
+        description: "Признак финансирования за счет внебюджетных средств"
+        data_type: boolean
+      - name: code
+        description: "Код вида внебюджетных средств"
+        data_type: text
+      - name: name
+        description: "Наименование вида внебюджетных средств"
+        data_type: text
+      - name: KBKsChange
+        description: |
+          КБК были изменены относительно Извещения (приглашения).
+          
+          Поле может быть заполнено, если есть хотя бы одна строка, содержащая поле \"Код бюджетной классификации (указывается до 01.01.2016)\" (finances/financingPlan/stages/payments/KBK) или \"Код бюджетной классификации (указывается после 01.01.2016)\" (finances/financingPlan/stages/payments/KBK2016).
+          В других случаях игнорируется при приеме
+        data_type: boolean
+      - name: targetArticlesChange
+        description: |
+          КЦС были изменены относительно Извещения (приглашения).
+          
+          Поле может быть заполнено, если есть хотя бы одна строка, содержащая поле \"Целевая статья\" (finances/extrabudgetFunds/stages/payments/targetArticle).
+          В других случаях игнорируется при приеме
+        data_type: boolean
+      - name: KVRsChange
+        description: |
+          КВР были изменены относительно Извещения (приглашения).
+          
+          Поле может быть заполнено, если есть хотя бы одна строка, содержащая поле \"Код вида расходов (указывается с 01.01.2016)\" (finances/extrabudgetFunds/stages/payments/KVR).
+          В других случаях игнорируется при приеме
+        data_type: boolean
+      - name: KOKSsChange
+        description: |
+          КОКС были изменены относительно Извещения (приглашения).
+          
+          Поле может быть заполнено, если есть хотя бы одна строка, содержащая поле \"Код по справочнику \"Классификатор объектов капитального строительства\" (КОКС) (nsiKOKS)\" (finances/financingPlan/stages/payments/KOKS или finances/financingPlan/stages/payments/KOKSCode).
+          В других случаях игнорируется при приеме
+        data_type: boolean

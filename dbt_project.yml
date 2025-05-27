@@ -33,5 +33,10 @@ models:
   zakupki_dwh:
     # Config indicated by + and applies to all files under models/exampl
     staging:
-      +schema: stg
-      +materialized: view
+      +schema: raw
+      +materialized: table
+    data_vault:
+      +schema: dwh
+      +materialized: table
+    marts:
+      +schema: rep

@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_eis__contract_byKLADRInfo
+    description: "Стадия нормализации данных из fz44_contract_byKLADRInfo"
+    columns:
+      - name: sid
+        description: "Уникальный идентификатор места поставки товара в ЕИС"
+        data_type: text
+      - name: externalSid
+        description: "Внешний идентификатор места поставки товара"
+        data_type: text
+      - name: electronicContractSid
+        description: |
+          Уникальный идентификатор места поставки товара в ЕИС в электронном контракте.
+          
+          Игнорируется при приеме, заполняется при передаче в случае, если место поставки унаследовано из структурированного контракта
+        data_type: text
+      - name: electronicContractExternalSid
+        description: |
+          Внешний идентификатор места поставки товара в электронном контракте.
+          
+          Игнорируется при приеме, заполняется при передаче в случае, если место поставки унаследовано из структурированного контракта
+        data_type: text
+      - name: kladrCode
+        description: "Код КЛАДР"
+        data_type: text
+      - name: fullName
+        description: "Полное наименование. Игнорируется при приеме. При передаче заполняется значением из справочника КЛАДР по коду КЛАДР"
+        data_type: text
+      - name: countryCode
+        description: "Цифровой код страны"
+        data_type: text
+      - name: countryFullName
+        description: "Полное наименование страны. Игнорируется при приеме. При передаче заполняется значением из справочника \"Общероссийский классификатор стран мира (ОКСМ)\" (nsiOKSM)"
+        data_type: text
+      - name: deliveryPlace
+        description: "Место"
+        data_type: text
+      - name: region
+        description: "Район/город"
+        data_type: text
+      - name: settlement
+        description: "Населенный пункт"
+        data_type: text

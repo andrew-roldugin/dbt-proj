@@ -1,0 +1,99 @@
+version: 2
+
+models:
+  - name: stg_eis__contract_placeOfStayInRF
+    description: "Стадия нормализации данных из fz44_contract_placeOfStayInRF"
+    columns:
+      - name: code
+        description: "Код по ОКТМО"
+        data_type: text
+      - name: name
+        description: |
+          Полное наименование. 
+          Игнорируется при приеме. При передаче заполняется значением из справочника \"Общероссийский классификатор территорий муниципальных образований (ОКТМО)\" (nsiOKTMO)
+        data_type: text
+      - name: address
+        description: "Адрес места нахождения"
+        data_type: text
+      - name: mailingAdress
+        description: "Адрес пользователя услугами почтовой связи в информационной системе организации федеральной почтовой связи"
+        data_type: text
+      - name: mailFacilityName
+        description: "Наименование объекта почтовой связи"
+        data_type: text
+      - name: postBoxNumber
+        description: "Номер ячейки абонементного почтового шкафа"
+        data_type: text
+      - name: postAddress
+        description: |
+          Почтовый адрес.
+          Устарело. Используется для приема данных о контрактах, первая версия сведений о которых сформирована до выхода версии ЕИС 9.1
+        data_type: text
+      - name: contactEMail
+        description: "Электронная почта"
+        data_type: text
+      - name: contactPhone
+        description: "Телефон"
+        data_type: text
+      - name: code
+        description: "Код по ОКТМО"
+        data_type: text
+      - name: name
+        description: |
+          Полное наименование. 
+          Игнорируется при приеме. При передаче заполняется значением из справочника \"Общероссийский классификатор территорий муниципальных образований (ОКТМО)\" (nsiOKTMO)
+        data_type: text
+      - name: address
+        description: "Адрес места жительства"
+        data_type: text
+      - name: postAddress
+        description: |
+          Почтовый адрес.
+          Устарело. Используется для приема данных о контрактах, первая версия сведений о которых сформирована до выхода версии ЕИС 9.1
+        data_type: text
+      - name: mailingAdress
+        description: "Адрес пользователя услугами почтовой связи в информационной системе организации федеральной почтовой связи"
+        data_type: text
+      - name: mailFacilityName
+        description: "Наименование объекта почтовой связи"
+        data_type: text
+      - name: postBoxNumber
+        description: "Номер ячейки абонементного почтового шкафа"
+        data_type: text
+      - name: contactEMail
+        description: "Электронная почта"
+        data_type: text
+      - name: contactPhone
+        description: "Телефон"
+        data_type: text
+      - name: code
+        description: "Код по ОКТМО"
+        data_type: text
+      - name: name
+        description: |
+          Полное наименование. 
+          Игнорируется при приеме. При передаче заполняется значением из справочника \"Общероссийский классификатор территорий муниципальных образований (ОКТМО)\" (nsiOKTMO)
+        data_type: text
+      - name: address
+        description: "Адрес места жительства"
+        data_type: text
+      - name: postAddress
+        description: |
+          Почтовый адрес.
+          Устарело. Используется для приема данных о контрактах, первая версия сведений о которых сформирована до выхода версии ЕИС 9.1
+        data_type: text
+      - name: mailingAdress
+        description: "Адрес пользователя услугами почтовой связи в информационной системе организации федеральной почтовой связи"
+        data_type: text
+      - name: mailFacilityName
+        description: "Наименование объекта почтовой связи"
+        data_type: text
+      - name: postBoxNumber
+        description: "Номер ячейки абонементного почтового шкафа"
+        data_type: text
+      - name: contactEMail
+        description: "Электронная почта"
+        data_type: text
+      - name: contactPhone
+        description: "Телефон"
+        data_type: text

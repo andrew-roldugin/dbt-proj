@@ -1,0 +1,104 @@
+version: 2
+
+models:
+  - name: stg_eis__contract_positionTradeNameUsingTextForm
+    description: "Стадия нормализации данных из fz44_contract_positionTradeNameUsingTextForm"
+    columns:
+      - name: guid
+        description: |
+          GUID лекарственного препарата.
+          Игнорируется при приеме, используется для электронного актирования
+        data_type: text
+      - name: sid
+        description: |
+          Уникальный идентификатор лекарственного препарата в ЕИС.
+          Игнорируется при приеме первой версии сведений о контракте. Назначается в ЕИС и заполняется при передаче.
+          Назначается один раз при сохранении версии документа, в которой добавлен лекарственный препарат, не меняется в следующих версиях.
+          При приеме последующих версий используется для идентификации лекарственного препарата в разных версиях сведений о контракте. При приеме изменений сведений о контракте, если поле заполнено, то контролируется, что в предыдущей версии сведений о контракте найден лекарственный препарат с указанным значением sid
+        data_type: int8
+      - name: externalSid
+        description: |
+          Внешний идентификатор лекарственного препарата.
+          Если при приеме изменений размещенных сведений о контракте задано поле \"Уникальный идентификатор лекарственного препарата в ЕИС\" (products/product/drugPurchaseObjectInfo/drugInfoUsingReferenceInfo/MNNsInfo/MNNInfo/positionsTradeName/positionTradeName/positionTradeNameUsingTextForm/sid), то для лекарственного препарата, идентифицируемого в разных версиях по полю \"Уникальный идентификатор лекарственного препарата в ЕИС\" (products/product/drugPurchaseObjectInfo/drugInfoUsingReferenceInfo/MNNsInfo/MNNInfo/positionsTradeName/positionTradeName/positionTradeNameUsingTextForm/sid), в данном поле должно быть задано то же значение, что и в предыдущей версии сведений о контракте. При этом, если в предыдущей версии сведений о контракте для лекарственного препарата не задано данное поле, то при приеме изменений допускается его указание
+        data_type: text
+      - name: electronicContractTNSid
+        description: |
+          Уникальный идентификатор лекарственного препарата (по ТН) в электронном контракте.
+          
+          Игнорируется при приеме, заполняется при передаче в случае, если объект закупки унаследован из структурированного контракта
+        data_type: int8
+      - name: electronicContractExternalTNSid
+        description: |
+          Внешний идентификатор лекарственного препарата (по ТН) в электронном контракте.
+          
+          Игнорируется при приеме, заполняется при передаче в случае, если объект закупки унаследован из структурированного контракта
+        data_type: text
+      - name: tradeName
+        description: "Торговое наименование (ТН) препарата"
+        data_type: text
+      - name: certificateNumber
+        description: "Номер регистрационного удостоверения лекарственного препарата"
+        data_type: text
+      - name: dosageFormName
+        description: "Наименование лекарственной формы"
+        data_type: text
+      - name: code
+        description: "Код лекарственной формы в справочнике \"Справочник: Лекарственные формы\" (nsiFarmMedicamentalForm)"
+        data_type: text
+      - name: name
+        description: |
+          Наименование лекарственной формы в справочнике \"Справочник: Лекарственные формы\" (nsiFarmMedicamentalForm).
+          Игнорируется при приеме, при передаче заполняется значением из справочника
+        data_type: text
+      - name: dosageName
+        description: "Наименование единицы измерения дозировки"
+        data_type: text
+      - name: code
+        description: "Код"
+        data_type: text
+      - name: nationalCode
+        description: "Национальное условное обозначение (поле localSymbol в справочнике ОКЕИ (nsiOKEI)). Игнорируется при приеме. автоматически заполняется значением из справочника и выгружается"
+        data_type: text
+      - name: name
+        description: |
+          Полное наименование единицы измерения (поле fullName  в справочнике ОКЕИ (nsiOKEI)).
+          Игнорируется при приеме. автоматически заполняется значением из справочника и выгружается
+        data_type: text
+      - name: dosageValue
+        description: "Значение дозировки"
+        data_type: text
+      - name: certificateKeeperName
+        description: "Наименование держателя или владельца регистрационного удостоверения"
+        data_type: text
+      - name: countryCode
+        description: "Цифровой код страны"
+        data_type: text
+      - name: countryFullName
+        description: "Полное наименование страны. Игнорируется при приеме. При передаче заполняется значением из справочника \"Общероссийский классификатор стран мира (ОКСМ)\" (nsiOKSM)"
+        data_type: text
+      - name: manufacturerName
+        description: "Наименование прозводителя"
+        data_type: text
+      - name: code
+        description: "Код причины корректировки"
+        data_type: text
+      - name: name
+        description: |
+          Наименование причины корректировки.
+          Игнорируется при приеме.  При передаче заполняется значением из справочника \"Причины корректировки справочных данных о лекарственных препаратах\" (nsiDrugChangeReason)
+        data_type: text
+      - name: commentOrRequestNumber
+        description: "Комментарий / номер обращения в службу технической поддержки. Требуется обязательное указание, если в справочнике \"Причины корректировки справочных данных о лекарственных препаратах\" (nsiDrugChangeReason) для записи с соответствующим кодом причины корректировки поле \"Признак «Обязательно указание комментарий / номер обращения в службу тех поддержки»\" (mustSpecifyCommentOrRequestNumber) имеет значение true"
+        data_type: text
+      - name: drugRef
+        description: "Ссылка на сведения о лекарственном препарате в ГРЛС. Требуется обязательное указание, если в справочнике \"Причины корректировки справочных данных о лекарственных препаратах\" (nsiDrugChangeReason) для записи соответствующим кодом причины корректировки поле \"Признак «Обязательно указание ссылки на сведения о ЛП в ГРЛС»\" (mustSpecifyDrugRef) имеет значение true"
+        data_type: text
+      - name: MNNNormName
+        description: "Нормализованное описание (исходное) МНН"
+        data_type: text
+      - name: dosageNormName
+        description: "Нормализованное описание (исходное) дозировки"
+        data_type: text
+      - name: medicamentalFormNormName
+        description: "Нормализованное название (исходное) лекарственной формы"
+        data_type: text

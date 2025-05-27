@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: stg_eis__contract_subContractInfo
+    description: "Стадия нормализации данных из fz44_contract_subContractInfo"
+    columns:
+      - name: subContractDate
+        description: "Дата заключения договора"
+        data_type: date
+      - name: subContractNumber
+        description: "Номер договора"
+        data_type: text
+      - name: subContractSubject
+        description: "Предмет договора"
+        data_type: text
+      - name: contractPriceSpecify
+        description: |
+          Способ указания цены договора.
+          
+          CP - цена договора
+          ACP - ориентировочное значение цены договора или формула цены договора
+          MCP - максимальное значение цены договора
+        data_type: text
+      - name: quantityUndefined
+        description: |
+          Невозможно указать сведения о количестве товара, работы, услуги.
+          
+          Устарело, не применяется, оставлено для обратной совместимости
+        data_type: boolean
+      - name: subContractDate
+        description: "Дата заключения договора"
+        data_type: date
+      - name: subContractNumber
+        description: "Номер договора"
+        data_type: text
+      - name: subContractSubject
+        description: "Предмет договора"
+        data_type: text
+      - name: contractPriceSpecify
+        description: |
+          Способ указания цены договора.
+          
+          CP - цена договора
+          ACP - ориентировочное значение цены договора или формула цены договора
+          MCP - максимальное значение цены договора
+        data_type: text
+      - name: quantityUndefined
+        description: |
+          Невозможно указать сведения о количестве товара, работы, услуги.
+          
+          Устарело, не применяется, оставлено для обратной совместимости
+        data_type: boolean

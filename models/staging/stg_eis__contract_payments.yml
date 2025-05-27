@@ -1,0 +1,167 @@
+version: 2
+
+models:
+  - name: stg_eis__contract_payments
+    description: "Стадия нормализации данных из fz44_contract_payments"
+    columns:
+      - name: KBK
+        description: "Код бюджетной классификации (указывается до 01.01.2016)"
+        data_type: text
+      - name: KBK2016
+        description: "Код бюджетной классификации (указывается после 01.01.2016)"
+        data_type: text
+      - name: KVR
+        description: |
+          Код вида расходов.
+          
+          Устарело. Для следующих типов организаций заказчика суммы по КВР необходимо указывать в блоке \"Внебюджетные средства\" (finances/extrabudgetFunds) (поле для указания КВР - \"Код вида расходов (указывается с 01.01.2016)\" (finances/extrabudgetFunds/stages/payments/KVR)):
+          - 03 - Бюджетное учреждение;
+          - 05 - Унитарное предприятие;
+          - 10 - Автономное учреждение;
+          - 20 - Иное юридическое лицо
+        data_type: text
+      - name: targetArticle
+        description: |
+          \"Целевая статья.
+          
+          Устарело. Для следующих типов организаций заказчика суммы по КЦС необходимо указывать в блоке \"График финансирования\" (finances/financingPlan) (поле для указания КЦС - \"Целевая статья\" (finances/financingPlan/stages/payments/targetArticle)):
+          - 03 - Бюджетное учреждение;
+          - 10 - Автономное учреждение
+        data_type: text
+      - name: KOKS
+        description: |
+          Код по справочнику \"Классификатор объектов капитального строительства\" (КОКС) (nsiKOKS).
+          Устарело. Для следующих типов организаций заказчика суммы по КОКС необходимо указывать в блоке \"График финансирования\" (finances/financingPlan) (поле для указания КОКС - \"Код по справочнику \"Классификатор объектов капитального строительства\" (КОКС) (nsiKOKS)\" (finances/financingPlan/stages/payments/KOKS)):
+          - 03 - Бюджетное учреждение;
+          - 05 - Унитарное предприятие;
+          - 10 - Автономное учреждение;
+          - 20 - Иное юридическое лицо
+        data_type: text
+      - name: code
+        description: "Код по справочнику \"Классификатор объектов капитального строительства\" (КОКС) (nsiKOKS)"
+        data_type: text
+      - name: name
+        description: "Наименование. Значение игнорируется при приеме, автоматически заполняется при передаче из справочника \"Классификатор объектов капитального строительства\" (КОКС) (nsiKOKS)"
+        data_type: text
+      - name: comment
+        description: |
+          Примечание.
+          Устарело, оставлено для обратной совместимости
+        data_type: text
+      - name: paymentMonth
+        description: "Месяц платежа"
+        data_type: text
+      - name: paymentYear
+        description: "Год платежа"
+        data_type: text
+      - name: paymentSum
+        description: "Сумма платежа в валюте контракта"
+        data_type: text
+      - name: paymentSumRUR
+        description: "Сумма платежа в рублевом эквиваленте"
+        data_type: text
+      - name: KOSGU
+        description: "Код операций сектора государственного управления (указывается до 01.01.2016)"
+        data_type: text
+      - name: KVR
+        description: "Код вида расходов (указывается с 01.01.2016)"
+        data_type: text
+      - name: notSpecified
+        description: |
+          Не указано.
+          Наличие данного поля означает, что добавлена строка КВР с незаполненным кодом
+        data_type: boolean
+      - name: comment
+        description: "Примечание. Устарело. Не используется"
+        data_type: text
+      - name: paymentMonth
+        description: "Месяц платежа"
+        data_type: text
+      - name: paymentYear
+        description: "Год платежа"
+        data_type: text
+      - name: paymentSum
+        description: "Сумма платежа в валюте контракта"
+        data_type: text
+      - name: paymentSumRUR
+        description: "Сумма платежа в рублевом эквиваленте"
+        data_type: text
+      - name: sid
+        description: |
+          Уникальный идентификатор платежа по этапу контракта в ЕИС. 
+          
+          Игнорируется при приеме первой версии сведений о контракте. 
+          При приеме второй и последующих версий если поле заполнено, то контролируется, что в предыдущей версии документа найден платеж по этапу контракта с указанным значением sid. При этом, если для платежа по этапу контракта, найденного по sid, в размещенной версии контракта:
+          1. задан externalSid, то в принимаемой версии для данного этапа должно быть указано то же значение externalSid;
+          2. не задан externalSid, то в принимаемой версии допускается указание externalSid
+        data_type: int8
+      - name: externalSid
+        description: |
+          Внешний идентификатор идентификатор платежа по этапу контракта. 
+          
+          В случае, если установлен признак isElectronicContractExternalSid, при приеме проекта первоначальной версии, сформированного на основании электронного контракта в структурированном виде, заполняется внешним идентификатором из структурированного контракта
+        data_type: text
+      - name: electronicContractSid
+        description: |
+          УУникальный идентификатор платежа по этапу исполнения контракта в электронном контракте.
+          
+          Игнорируется при приеме, заполняется автоматически в случае, если платеж по этапу был автоматически наследован из электронного контракта
+        data_type: int8
+      - name: electronicContractExternalSid
+        description: |
+          Внешний идентификатор платежа по этапу исполнения контракта в электронном контракте.
+          
+          Игнорируется при приеме, заполняется автоматически в случае, если платеж по этапу был автоматически наследован из электронного контракта
+        data_type: text
+      - name: KBK
+        description: "Код бюджетной классификации (указывался до 01.01.2016)"
+        data_type: text
+      - name: KBK2016
+        description: "Код бюджетной классификации (указывается после 01.01.2016)"
+        data_type: text
+      - name: KVR
+        description: "Код вида расходов"
+        data_type: text
+      - name: code
+        description: "Код поступлений"
+        data_type: text
+      - name: name
+        description: "Наименование поступлений. Игнорируется при приеме. При передаче заполняется значением из справочника \"Коды поступлений для АУ/БУ\" (nsiReceiptCodes)"
+        data_type: text
+      - name: notSpecified
+        description: |
+          Не указано.
+          Наличие данного поля означает, что добавлена строка КВР с незаполненным кодом
+        data_type: boolean
+      - name: targetArticle
+        description: "Целевая статья"
+        data_type: text
+      - name: KOKS
+        description: |
+          Код по справочнику \"Классификатор объектов капитального строительства\" (КОКС) (nsiKOKS).
+          
+          При приеме бизнес-контролем код, указанный в поле, контролируется  на присутствие в справочнике КОКС в актуальном состоянии
+        data_type: text
+      - name: code
+        description: "Код по справочнику \"Классификатор объектов капитального строительства\" (КОКС) (nsiKOKS)"
+        data_type: text
+      - name: name
+        description: "Наименование. Значение игнорируется при приеме, автоматически заполняется при передаче из справочника \"Классификатор объектов капитального строительства\" (КОКС) (nsiKOKS)"
+        data_type: text
+      - name: comment
+        description: |
+          Примечание.
+          Устарело, оставлено для обратной совместимости
+        data_type: text
+      - name: paymentMonth
+        description: "Месяц платежа"
+        data_type: text
+      - name: paymentYear
+        description: "Год платежа"
+        data_type: text
+      - name: paymentSum
+        description: "Сумма платежа в валюте контракта"
+        data_type: text
+      - name: paymentSumRUR
+        description: "Сумма платежа в рублевом эквиваленте"
+        data_type: text

@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: stg_eis__contract_positionTradeName
+    description: Стадия нормализации данных из fz44_contract_positionTradeName
+    columns:
+      - name: positionTradeNameExternalCode
+        description: Уникальный внешний код лекарственного препарата по справочнику 'Лекарственные препараты'
+        data_type: text

@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: stg_eis__contract_subContractPriceInfo
+    description: "Стадия нормализации данных из fz44_contract_subContractPriceInfo"
+    columns:
+      - name: price
+        description: "Цена договора"
+        data_type: text
+      - name: code
+        description: "Код валюты"
+        data_type: text
+      - name: name
+        description: |
+          Наименование валюты.
+          Игнорируется при приеме.  При передаче заполняется значением из справочника \"Общероссийский классификатор валют (ОКВ)\" (nsiCurrency)
+        data_type: text
+      - name: rate
+        description: "Курс валюты по отношению к рублю"
+        data_type: text
+      - name: raiting
+        description: "Номинал валюты"
+        data_type: int8
+      - name: priceRUR
+        description: "Цена договора в рублевом эквиваленте. При приеме игнорируется, заполняется при передаче в случае если валюта договора отлична от рублей"
+        data_type: text
+      - name: VATSum
+        description: "Размер НДС в валюте контракта"
+        data_type: text
+      - name: VATSumRUR
+        description: |
+          Размер НДС в рублевом эквиваленте.
+          При приеме игнорируется, заполняется при передаче, в случае если валюта контракта отлична от рублей и заполнено поле \"Размер НДС в валюте контракта\" (VATSum)
+        data_type: text
+      - name: price
+        description: "Цена договора"
+        data_type: text
+      - name: code
+        description: "Код валюты"
+        data_type: text
+      - name: name
+        description: |
+          Наименование валюты.
+          Игнорируется при приеме.  При передаче заполняется значением из справочника \"Общероссийский классификатор валют (ОКВ)\" (nsiCurrency)
+        data_type: text
+      - name: rate
+        description: "Курс валюты по отношению к рублю"
+        data_type: text
+      - name: raiting
+        description: "Номинал валюты"
+        data_type: int8
+      - name: priceRUR
+        description: "Цена договора в рублевом эквиваленте. При приеме игнорируется, заполняется при передаче в случае если валюта договора отлична от рублей"
+        data_type: text
+      - name: VATSum
+        description: "Размер НДС в валюте контракта"
+        data_type: text
+      - name: VATSumRUR
+        description: |
+          Размер НДС в рублевом эквиваленте.
+          При приеме игнорируется, заполняется при передаче, в случае если валюта контракта отлична от рублей и заполнено поле \"Размер НДС в валюте контракта\" (VATSum)
+        data_type: text

@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_eis__contract_cryptoSigns
+    description: "Стадия нормализации данных из fz44_contract_cryptoSigns"
+    columns:
+      - name: signature
+        description: "Электронная подпись"
+        data_type: text
+      - name: signature
+        description: "Электронная подпись"
+        data_type: text
+      - name: signature
+        description: "Электронная подпись"
+        data_type: text
+      - name: signature
+        description: "Электронная подпись"
+        data_type: text
+      - name: signature
+        description: "Электронная подпись"
+        data_type: text
+      - name: signature
+        description: "Электронная подпись"
+        data_type: text
+      - name: signature
+        description: "Электронная подпись"
+        data_type: text
+      - name: signature
+        description: "Электронная подпись"
+        data_type: text
+      - name: signature
+        description: "Электронная подпись"
+        data_type: text
+      - name: signature
+        description: "Электронная подпись"
+        data_type: text
+      - name: signature
+        description: "Электронная подпись"
+        data_type: text

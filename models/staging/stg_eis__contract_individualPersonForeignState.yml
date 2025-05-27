@@ -1,0 +1,165 @@
+version: 2
+
+models:
+  - name: stg_eis__contract_individualPersonForeignState
+    description: "Стадия нормализации данных из fz44_contract_individualPersonForeignState"
+    columns:
+      - name: lastName
+        description: "Фамилия"
+        data_type: text
+      - name: firstName
+        description: "Имя"
+        data_type: text
+      - name: middleName
+        description: "Отчество"
+        data_type: text
+      - name: lastNameLat
+        description: "Фамилия (латинскими буквами)"
+        data_type: text
+      - name: firstNameLat
+        description: "Имя (латинскими буквами)"
+        data_type: text
+      - name: middleNameLat
+        description: "Отчество (латинскими буквами)"
+        data_type: text
+      - name: taxPayerCode
+        description: "Код налогоплательщика в стране регистрации или его аналог"
+        data_type: text
+      - name: personalAccount
+        description: |
+          Номер лицевого счета.
+          Обязательность заполнения контролируется бизнес-контролем
+        data_type: text
+      - name: countryCode
+        description: "Цифровой код страны"
+        data_type: text
+      - name: countryFullName
+        description: "Полное наименование страны"
+        data_type: text
+      - name: address
+        description: "Адрес места нахождения в стране регистрации"
+        data_type: text
+      - name: postAddress
+        description: "Почтовый адрес"
+        data_type: text
+      - name: contactEMail
+        description: "Электронная почта"
+        data_type: text
+      - name: contactPhone
+        description: "Телефон"
+        data_type: text
+      - name: isCulture
+        description: "Поставщик культурных ценностей. Устарело. Не применяется."
+        data_type: boolean
+      - name: lastName
+        description: |
+          Фамилия
+          
+          Если заполнено поле \"Реестровый номер процедуры доп.соглашения\" (numberAdd), то игнорируется при приеме, заполняется автоматически  на основании доп. соглашения об изменении контракта из ПЗК
+        data_type: text
+      - name: firstName
+        description: |
+          Имя
+          
+          Если заполнено поле \"Реестровый номер процедуры доп.соглашения\" (numberAdd), то игнорируется при приеме, заполняется автоматически  на основании доп. соглашения об изменении контракта из ПЗК
+        data_type: text
+      - name: middleName
+        description: |
+          Отчество
+          
+          Если заполнено поле \"Реестровый номер процедуры доп.соглашения\" (numberAdd), то игнорируется при приеме, заполняется автоматически  на основании доп. соглашения об изменении контракта из ПЗК
+        data_type: text
+      - name: lastNameLat
+        description: "Фамилия (латинскими буквами)"
+        data_type: text
+      - name: firstNameLat
+        description: "Имя (латинскими буквами)"
+        data_type: text
+      - name: middleNameLat
+        description: "Отчество (латинскими буквами)"
+        data_type: text
+      - name: code
+        description: "Код"
+        data_type: text
+      - name: name
+        description: |
+          Наименование статуса поставщика.
+          Игнорируется при приеме. При передаче заполняется значением из справочника \"Наименование статуса поставщика\" (nsiSupplierStatus)
+        data_type: text
+      - name: taxPayerCode
+        description: "Код налогоплательщика в стране регистрации или его аналог"
+        data_type: text
+      - name: personalAccount
+        description: |
+          Номер лицевого счета.
+          Обязательность заполнения контролируется бизнес-контролем
+        data_type: text
+      - name: INN
+        description: |
+          ИНН
+          
+          Если заполнено поле \"Реестровый номер процедуры доп.соглашения\" (numberAdd), то игнорируется при приеме, заполняется автоматически  на основании доп. соглашения об изменении контракта из ПЗК
+        data_type: text
+      - name: registrationDate
+        description: |
+          Дата постановки на учет в налоговом органе.
+          Игнорируется при приеме, начиная с версии 12.2, в том числе для контрактов, первая версия которых размещена до 12.2, не заполняется при передаче
+        data_type: date
+      - name: status
+        description: |
+          Статус поставщика (исполнителя, подрядчика).
+          
+          После выхода версии 13.2 игнорируется при приеме, не заполняется при передаче. Оставлено для обратной совместимости
+        data_type: text
+      - name: ERSMSPInclusionDate
+        description: |
+          Дата включения в Единый реестр субъектов малого и среднего предпринимательства.
+          Игнорируется при приеме, начиная с версии 12.2, в том числе для контрактов, первая версия которых размещена до 12.2, не заполняется при передаче
+        data_type: date
+      - name: isIP
+        description: "Индивидуальный предприниматель"
+        data_type: boolean
+      - name: countryCode
+        description: "Цифровой код страны"
+        data_type: text
+      - name: countryFullName
+        description: "Полное наименование страны"
+        data_type: text
+      - name: address
+        description: "Адрес места жительства"
+        data_type: text
+      - name: postAddress
+        description: "Адрес пользователя услугами почтовой связи"
+        data_type: text
+      - name: contactEMail
+        description: "Электронная почта"
+        data_type: text
+      - name: contactPhone
+        description: "Телефон"
+        data_type: text
+      - name: code
+        description: "Код по ОКТМО"
+        data_type: text
+      - name: name
+        description: |
+          Полное наименование. 
+          Игнорируется при приеме. При передаче заполняется значением из справочника \"Общероссийский классификатор территорий муниципальных образований (ОКТМО)\" (nsiOKTMO)
+        data_type: text
+      - name: address
+        description: "Адрес места жительства"
+        data_type: text
+      - name: mailingAdress
+        description: "Адрес пользователя услугами почтовой связи в информационной системе организации федеральной почтовой связи"
+        data_type: text
+      - name: mailFacilityName
+        description: "Наименование объекта почтовой связи"
+        data_type: text
+      - name: postBoxNumber
+        description: "Номер ячейки абонементного почтового шкафа"
+        data_type: text
+      - name: contactEMail
+        description: "Электронная почта"
+        data_type: text
+      - name: contactPhone
+        description: "Телефон"
+        data_type: text

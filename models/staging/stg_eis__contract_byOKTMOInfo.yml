@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: stg_eis__contract_byOKTMOInfo
+    description: "Стадия нормализации данных из fz44_contract_byOKTMOInfo"
+    columns:
+      - name: sid
+        description: "Уникальный идентификатор места поставки товара в ЕИС"
+        data_type: text
+      - name: externalSid
+        description: "Внешний идентификатор места поставки товара"
+        data_type: text
+      - name: electronicContractSid
+        description: |
+          Уникальный идентификатор места поставки товара в ЕИС в электронном контракте.
+          
+          Игнорируется при приеме, заполняется при передаче в случае, если место поставки унаследовано из структурированного контракта
+        data_type: text
+      - name: electronicContractExternalSid
+        description: |
+          Внешний идентификатор места поставки товара в электронном контракте.
+          
+          Игнорируется при приеме, заполняется при передаче в случае, если место поставки унаследовано из структурированного контракта
+        data_type: text
+      - name: code
+        description: "Код по ОКТМО"
+        data_type: text
+      - name: name
+        description: |
+          Полное наименование.
+          Игнорируется при приеме. При передаче заполняется значением из справочника \"Общероссийский классификатор территорий муниципальных образований\" (nsiOKTMO)
+        data_type: text
+      - name: GARGuid
+        description: "GUID ГАР"
+        data_type: text
+      - name: GARAddress
+        description: "Адрес по ГАР"
+        data_type: text
+      - name: deliveryPlace
+        description: "Дополнительная информация об адресе"
+        data_type: text

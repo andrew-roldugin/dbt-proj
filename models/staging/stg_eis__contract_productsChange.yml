@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_eis__contract_productsChange
+    description: "Стадия нормализации данных из fz44_contract_productsChange"
+    columns:
+      - name: documentName
+        description: "Наименование"
+        data_type: text
+      - name: documentNum
+        description: "Номер документа"
+        data_type: text
+      - name: documentDate
+        description: "Дата документа"
+        data_type: date
+      - name: changeInfo
+        description: "Информация об изменении"
+        data_type: text

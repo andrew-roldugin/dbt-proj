@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_eis__contract_waiverNotice
+    description: "Стадия нормализации данных из fz44_contract_waiverNotice"
+    columns:
+      - name: regNumber
+        description: "Номер реестровой записи независимой гарантии. Принимается и сохраняется, если в действующей размещенной версии информации о контракте (его изменении) установлен признак «Контракт жизненного цикла» (contractLifeCycle) и заполнены оба блока enforcement/bankGuarantee и subsequentMaintenanceEnforcement/bankGuarantee. В прочих случаях игнорируется при приеме, автоматически определяется и заполняется при передаче. Всегда игнорируется при приеме, автоматически определяется и заполняется при передаче для блока qualityGuaranteeInfo"
+        data_type: text
+      - name: docNumber
+        description: "Номер документа реестровой записи независимой гарантии. Игнорируется при приеме, автоматически определяется и заполняется при передаче"
+        data_type: text
+      - name: noticeDate
+        description: "Дата уведомления"
+        data_type: date
+      - name: noticeNumber
+        description: "Номер уведомления"
+        data_type: text
+      - name: noticeReason
+        description: "Причина направления уведомления"
+        data_type: text
+      - name: noticePublishDate
+        description: "Дата публикации уведомления. Игнорируется при приеме, автоматически определяется и заполняется при передаче"
+        data_type: timestamp
+      - name: regNumber
+        description: "Номер реестровой записи независимой гарантии. Принимается и сохраняется, если в действующей размещенной версии информации о контракте (его изменении) установлен признак «Контракт жизненного цикла» (contractLifeCycle) и заполнены оба блока enforcement/bankGuarantee и subsequentMaintenanceEnforcement/bankGuarantee. В прочих случаях игнорируется при приеме, автоматически определяется и заполняется при передаче. Всегда игнорируется при приеме, автоматически определяется и заполняется при передаче для блока qualityGuaranteeInfo"
+        data_type: text
+      - name: docNumber
+        description: "Номер документа реестровой записи независимой гарантии. Игнорируется при приеме, автоматически определяется и заполняется при передаче"
+        data_type: text
+      - name: noticeDate
+        description: "Дата уведомления"
+        data_type: date
+      - name: noticeNumber
+        description: "Номер уведомления"
+        data_type: text
+      - name: noticeReason
+        description: "Причина направления уведомления"
+        data_type: text
+      - name: noticePublishDate
+        description: "Дата публикации уведомления. Игнорируется при приеме, автоматически определяется и заполняется при передаче"
+        data_type: timestamp
