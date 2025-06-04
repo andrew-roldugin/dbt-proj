@@ -1,0 +1,136 @@
+{
+  "contractProcedure": {
+    "@schemeVersion": "14.1",
+    "id": "273436904",
+    "sid": "273436904",
+    "publishDate": "2024-05-22T12:13:24.989+05:00",
+    "versionNumber": 0,
+    "executions": {
+      "stage": {
+        "sid": "47607609",
+        "startDate": "2019-01-02",
+        "endDate": "2019-12-31"
+      },
+      "ordinalNumber": "2",
+      "finalStageExecution": "true",
+      "execution": {
+        "payDoc": {
+          "sid": "597397122",
+          "documentName": "Заявка",
+          "documentDate": "2019-12-30",
+          "documentNum": "1810"
+        },
+        "currency": { "code": "RUB", "name": "Российский рубль" },
+        "paid": "800000.00",
+        "paidRUR": "800000.00",
+        "paidVAT": "133333.00",
+        "paidVATRUR": "133333.00",
+        "improperExecutionText": "Отсутствует"
+      }
+    },
+    "printForm": {
+      "url": "https://zakupki.gov.ru/epz/contract/printForm/view.html?contractProcedureId=273436904",
+      "docRegNumber": "35919002910190000020013"
+    },
+    "paymentDocuments": {
+      "attachment": [
+        {
+          "publishedContentId": "19048CF1EEF5FBBEE06334548D0A5671",
+          "fileName": "Чердынское ГП за 2020 на 24650,41.xlsx",
+          "docDescription": "Чердынское ГП за 2020 на 24650,41",
+          "docRegNumber": "35919002910190000020014",
+          "url": "https://zakupki.gov.ru/44fz/filestore/public/1.0/download/rgk2/file.html?uid=19048CF1EEF5FBBEE06334548D0A5671"
+        },
+        {
+          "publishedContentId": "19021902864940A9E06334548D0A3F00",
+          "fileName": "Договор 532 пп Чердынского ГП за 2019.xlsx",
+          "docDescription": "Договор 532 пп Чердынского ГП за 2019",
+          "docRegNumber": "35919002910190000020015",
+          "url": "https://zakupki.gov.ru/44fz/filestore/public/1.0/download/rgk2/file.html?uid=19021902864940A9E06334548D0A3F00"
+        }
+      ]
+    },
+    "okpd2okved2": "false",
+    "isEDIBased": "false",
+    "isPURorASFKBased": "false",
+    "isUnilateralRefusalAuto": "false",
+    "isIncludeKOKS": "false"
+  },
+  "contractUrl": "http://zakupki.gov.ru/epz/contract/contractCard/common-info.html?reestrNumber=3591900291019000002",
+  "currency": { "code": "RUB", "name": "Российский рубль" },
+  "currentContractStage": "EC",
+  "customer": {
+    "regNum": "01566000227",
+    "kpp": "591901001",
+    "inn": "5919030057",
+    "fullName": "АДМИНИСТРАЦИЯ ЧЕРДЫНСКОГО ГОРОДСКОГО ОКРУГА ПЕРМСКОГО КРАЯ"
+  },
+  "execution": { "startDate": "2019-01-02", "endDate": "2019-12-31" },
+  "fileVersion": "2024060100_005",
+  "foundation": {
+    "fcsOrder": { "purchaseCode": "193591900291059190100100010013512244" }
+  },
+  "fz": "44",
+  "id": "91056795",
+  "loadId": 2407,
+  "misuses": ["prodname"],
+  "number": "532",
+  "price": 800000,
+  "printFormUrl": "https://zakupki.gov.ru/epz/contract/printForm/view.html?contractInfoId=91056795",
+  "products": [
+    {
+      "name": "Услуги по передаче электроэнергии",
+      "OKEI": { "code": "214", "name": "кВт" },
+      "price": 5.63,
+      "OKPD2": {
+        "code": "35.12.10.110",
+        "name": "Услуги по передаче электроэнергии"
+      },
+      "sid": "172539531",
+      "sum": 800000,
+      "quantity": "142095.914"
+    }
+  ],
+  "protocolDate": "2019-01-01",
+  "publishDate": "2024-05-15T16:13:22.341+05:00",
+  "regNum": "3591900291019000002",
+  "regionCode": "59",
+  "scan": [
+    {
+      "url": "https://zakupki.gov.ru/44fz/filestore/public/1.0/download/rgk2/file.html?uid=8CB2447D1CDC00C8E0530A86120DB34D",
+      "docDescription": "договор",
+      "fileName": "договор.PDF"
+    },
+    {
+      "url": "https://zakupki.gov.ru/44fz/filestore/public/1.0/download/rgk2/file.html?uid=8CB382CB335F00C4E0530A86120DF4E5",
+      "docDescription": "дополнительное соглашение",
+      "fileName": "дополнительное соглашение.PDF"
+    }
+  ],
+  "schemaVersion": "14.1",
+  "signDate": "2019-01-02T00:00:00.000Z",
+  "singleCustomerReason": {
+    "code": "20320",
+    "name": "Пункт 29 части 1 статьи 93. Закупка по договору энергоснабжения или договору купли-продажи электрической энергии с гарантирующим поставщиком электрической энергии"
+  },
+  "suppliers": [
+    {
+      "kpp": "590401001",
+      "legalForm": {
+        "code": "12247",
+        "singularName": "Публичные акционерные общества"
+      },
+      "factualAddress": "614007, КРАЙ ПЕРМСКИЙ 59, Г ПЕРМЬ, УЛ ТИМИРЯЗЕВА, 37",
+      "inn": "5904123809",
+      "participantType": "U",
+      "organizationName": "ПУБЛИЧНОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"ПЕРМСКАЯ ЭНЕРГОСБЫТОВАЯ КОМПАНИЯ\"",
+      "contactInfo": {
+        "middleName": "Валерьевич",
+        "lastName": "Шершаков",
+        "firstName": "Игорь"
+      },
+      "postAddress": "614007, КРАЙ ПЕРМСКИЙ 59, Г ПЕРМЬ, УЛ ТИМИРЯЗЕВА, 37"
+    }
+  ],
+  "versionNumber": 2
+}

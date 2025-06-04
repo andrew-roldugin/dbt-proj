@@ -1,15 +1,14 @@
-Welcome to your new dbt project!
+# Data Vault 2.0 dbt-проект для закупок
 
-### Using the starter project
+- Используются raw → stage → vault (hubs, sats, links) модели
+- Генерация ключей и хэш-диффов через automate_dv
+- Все бизнес-ключи, payload и ссылки формируются через stg слой
 
-Try running the following commands:
-- dbt run
-- dbt test
+## Слои
+- models/stage/ — подготовка данных для автоматизации Data Vault
+- models/raw_vault/hubs/ — бизнес-ключи
+- models/raw_vault/sats/ — атрибуты
+- models/raw_vault/links/ — связи
 
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+## Документация
+Документация по моделям — в models/docs/schema.yml
