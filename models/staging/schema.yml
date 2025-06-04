@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: stg_contracts_44
+    description: >
+      Стейджинговая таблица контрактов, собранная из EAV-структуры.
+    columns:
+      - name: contract_id
+        description: Уникальный идентификатор контракта
+      - name: regnum
+        description: Реестровый номер контракта в ЕИС
+      - name: number
+        description: Номер заключенного контракта
+      - name: sign_date
+        description: Дата заключения контракта
+      - name: execution_start_date
+        description: Дата начала исполнения контракта
+      - name: execution_end_date
+        description: Дата окончания исполнения контракта
+      - name: publish_date
+        description: Дата публикации контракта
+      - name: price
+        description: Сумма контракта
+      - name: currency
+        description: Валюта контракта
+      - name: eis_url
+        description: Ссылка на ЕИС
+      - name: purchase_code
+        description: Код закупки
+      - name: single_supplier_reason_code
+        description: Код основания для единственного поставщика
+      - name: single_supplier_reason_name
+        description: Расшифровка основания
+      - name: version_number
+        description: Версия данных
+      - name: region_code
+        description: Код региона заказчика
+
+  - name: stg_suppliers
+    description: Сведения о поставщиках
+  - name: stg_customers
+    description: Сведения о заказчиках
+  - name: stg_products
+    description: Сведения о позициях контракта

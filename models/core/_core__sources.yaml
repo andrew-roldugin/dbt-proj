@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: core
+    schema: core
+    database: zakupki
+    tables:
+      - name: raw_contracts_eav 
+        description: 'Универсальное хранилище контрактов в формате EAV'
+        columns:
+          - name: record_id
+            description: Уникальный идентификатор записи
+          - name: file_id
+            description: Имя файла-источника (jsonl)
+          - name: contract_id
+            description: Идентификатор контракта из исходных данных
+          - name: path
+            description: Полный путь до элемента JSON
+          - name: element_name
+            description: Наименование элемента (последняя часть пути)
+          - name: element_value
+            description: Значение элемента
+          - name: value_type
+            description: Тип значения (str, int, float и т.д.)
+          - name: loaded_at
+            description: Дата и время загрузки записи
