@@ -1,11 +1,11 @@
-{# {{
+{{
   config(
     materialized = 'incremental',
     unique_key = ['contract_id', 'sid'],
     incremental_strategy = 'append', 
     schema='stg'
     )
-}} #}
+}}
 
 with raw as (
     select 

@@ -1,7 +1,7 @@
 {{
   config(
     materialized = 'incremental',
-    unique_key = ['inn', 'kpp'],
+    unique_key = 'customer_surrogate_key',
     incremental_strategy = 'append', 
     schema='stg'
     )
@@ -13,7 +13,6 @@ with raw as (
 ),
 pivoted as (
     select
-        {{ dbt_utils.generate_surrogate_key(['inn', 'knn']) }} as customer_surrogate_key,
         contract_id,
         max(case when path = 'customer.fullName' then element_value end) as full_name,
         max(case when path = 'customer.inn' then element_value end) as inn,
@@ -25,4 +24,7 @@ pivoted as (
     from raw
     group by contract_id
 )
-select * from pivoted
+select 
+    {{ dbt_utils.generate_surrogate_key(['p.inn', 'p.kpp']) }} as customer_surrogate_key,
+    p.*
+ from pivoted p
