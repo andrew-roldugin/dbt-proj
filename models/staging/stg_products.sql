@@ -26,7 +26,8 @@ pivoted as (
         max(case when element_path ~ 'OKPD2.code$' then element_value end) as okpd2_code,
         max(case when element_path ~ 'OKPD2.name$' then element_value end) as okpd2_name,
         max(case when element_path ~ 'OKEI.code$' then element_value end) as okei_code,
-        max(case when element_path ~ 'OKEI.name$' then element_value end) as okei_name
+        max(case when element_path ~ 'OKEI.name$' then element_value end) as okei_name,
+        max(loaded_at) as updated_at
     from raw
     group by contract_id, enumerate_item
 )

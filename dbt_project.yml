@@ -35,3 +35,6 @@ models:
     staging:
       +target_schema: stg
       +materialized: table
+    marts:
+      +target_schema: marts
+      +materialized: incremental

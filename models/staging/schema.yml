@@ -42,3 +42,10 @@ models:
     description: Сведения о заказчиках
   - name: stg_products
     description: Сведения о позициях контракта
+
+
+sources:
+  - name: stg
+    schema: stg
+    tables:
+      - name: stg_products
